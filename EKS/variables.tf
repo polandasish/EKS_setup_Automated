@@ -21,3 +21,7 @@ variable "instance_types" {
     description= "Node Instances"
   type= list(string)
 }
+variable "cluster_name" {
+description = "Kubernetes cluster name"
+type=string
+}
