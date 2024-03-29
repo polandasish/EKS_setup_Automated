@@ -64,6 +64,7 @@ module "eks" {
     
   }
    enable_cluster_creator_admin_permissions = true
+  /*
    access_entries = {
     # One access entry with a policy associated
     my-eks-cluster = {
@@ -81,6 +82,7 @@ module "eks" {
       }
     }
   }
+*/
  
   tags = {
     Environment = "dev"
