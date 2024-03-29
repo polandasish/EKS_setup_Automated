@@ -4,4 +4,4 @@ ekspub-subnet=["192.169.4.0/24","192.169.5.0/24","192.169.6.0/24"]
 
 ekspriv-subnet=["192.169.7.0/24","192.169.8.0/24","192.169.9.0/24"]
 
-instance_types = ["t2.medim"]
+instance_types = ["t2.medium"]
