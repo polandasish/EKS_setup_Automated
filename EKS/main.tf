@@ -41,12 +41,11 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 20.0"
 
-  cluster_name    = local.cluster_name
+  cluster_name    = var.cluster_name
   cluster_version = "1.29"
 
   cluster_endpoint_public_access  = true
-  
-  
+    
   
   vpc_id                   = module.vpc.vpc_id
   subnet_ids               = module.vpc.private_subnets
@@ -64,6 +63,24 @@ module "eks" {
     }
     
   }
+   enable_cluster_creator_admin_permissions = true
+   access_entries = {
+    # One access entry with a policy associated
+    my-eks-cluster = {
+      kubernetes_groups = []
+      principal_arn     = "arn:aws:iam::090140969397:role/project_role"
+
+      policy_associations = {
+        example = {
+          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy"
+          access_scope = {
+            namespaces = ["default"]
+            type       = "namespace"
+          }
+        }
+      }
+    }
+  }
  
   tags = {
     Environment = "dev"
@@ -71,14 +88,4 @@ module "eks" {
     Name= "eks"
   }
 }
-/*
-data "aws_eks_cluster" "cluster" {
-  name= module.eks.cluster_id
-  
-}
-data "aws_eks_cluster_auth" "cluster" {
-  name= module.eks.cluster_id
-  
-}
-*/
 
