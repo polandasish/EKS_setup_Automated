@@ -1,3 +1,5 @@
+
+/*
 provider "kubernetes" {
    host = data.aws_eks_cluster.cluster.endpoint
    token= data.aws_eks_cluster_auth.cluster.token
@@ -5,3 +7,4 @@ provider "kubernetes" {
 
   
 }
+*/
