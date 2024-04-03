@@ -79,7 +79,7 @@ module "ec2_instance" {
   user_data                   = file("script.sh")
   associate_public_ip_address = true
   availability_zone           = data.aws_availability_zones.azs.names[0]
-  iam_instance_profile        = aws_iam_instance_profile.eks_profile.name
+  iam_instance_profile        = data.aws_iam_instance_profile.existing-role.role_name
 
   tags = {
     Name        = "Jenkins_instance"
