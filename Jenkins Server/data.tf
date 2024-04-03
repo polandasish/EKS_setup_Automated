@@ -8,3 +8,7 @@ data "aws_ami" "ubuntu" {
     values = ["ubuntu/images/hvm-ssd/ubuntu-*-22.04-amd64-server-*"]
   }
 }
+
+data "aws_iam_instance_profile" "existing-role" {
+  name = var.rolename
+}
