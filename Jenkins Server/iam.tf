@@ -1,3 +1,4 @@
+/*
 resource "aws_iam_role" "eksrole" {
   name = "eks_role"
 
@@ -49,6 +50,7 @@ resource "aws_iam_role_policy_attachment" "eks_role_policy-attach" {
   role       = aws_iam_role.eksrole.name
   policy_arn = aws_iam_policy.ekspolicy.arn
 }
+*/
 
 resource "aws_iam_instance_profile" "eks_profile" {
   name = "eks_profile"
