@@ -1,5 +1,5 @@
 variable "region" {
-  default = "us-east-1"
+  default = "us-west-1"
 }
 variable "vpc_cidr" {
   type = string
@@ -12,5 +12,8 @@ variable "mypublic-subnet" {
 }
 
 variable "instance_type" {
+  type = string
+}
+variable "rolename" {
   type = string
 }
