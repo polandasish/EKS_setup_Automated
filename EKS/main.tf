@@ -64,16 +64,16 @@ module "eks" {
     
   }
    enable_cluster_creator_admin_permissions = true
-  /*
+  
    access_entries = {
     # One access entry with a policy associated
     my-eks-cluster = {
       kubernetes_groups = []
-      principal_arn     = "arn:aws:iam::090140969397:role/project_role"
+      principal_arn     = "arn:aws:iam::090140969397:role/EC2-ROLE-EKS-CLUSTER"
 
       policy_associations = {
         example = {
-          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy"
+          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
           access_scope = {
             namespaces = ["default"]
             type       = "namespace"
@@ -82,7 +82,7 @@ module "eks" {
       }
     }
   }
-*/
+
  
   tags = {
     Environment = "dev"
