@@ -80,6 +80,17 @@ module "ec2_instance" {
   associate_public_ip_address = true
   availability_zone           = data.aws_availability_zones.azs.names[0]
   iam_instance_profile        = data.aws_iam_instance_profile.existing-role.role_name
+  root_block_device = [
+    {
+      encrypted   = true
+      volume_type = "gp2"
+      throughput  = 200
+      volume_size = 30
+      tags = {
+        Name = "my-root-block"
+      }
+    },
+  ]
 
   tags = {
     Name        = "Jenkins_instance"
