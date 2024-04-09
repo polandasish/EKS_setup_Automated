@@ -70,7 +70,8 @@ module "eks" {
     # One access entry with a policy associated
     my-eks-cluster = {
       kubernetes_groups = []
-      principal_arn     = "arn:aws:iam::090140969397:role/EC2-ROLE-EKS-CLUSTER"
+      #principal_arn     = "arn:aws:iam::090140969397:role/EC2-ROLE-EKS-CLUSTER"
+      principal_arn       = "arn:aws:iam::090140969397:root"
 
       policy_associations = {
         example = {
@@ -80,10 +81,22 @@ module "eks" {
             type       = "namespace"
           }
         }
+      },
+      kubernetes_groups = []
+      principal_arn     = "arn:aws:iam::090140969397:role/EC2-ROLE-EKS-CLUSTER"
+
+      policy_associations = {
+        examle2 = {
+          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+          access_scope = {
+            namespaces = ["default"]
+            type       = "namespace"
+          }
+        }
       }
     }
   }
-
+  
  
   tags = {
     Environment = "dev"
@@ -91,4 +104,6 @@ module "eks" {
     Name= "eks"
   }
 }
+
+
 
