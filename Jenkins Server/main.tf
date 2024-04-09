@@ -83,7 +83,7 @@ module "ec2_instance" {
   root_block_device = [
     {
       encrypted   = true
-      volume_type = "gp2"
+      volume_type = "gp3"
       throughput  = 200
       volume_size = 30
       
