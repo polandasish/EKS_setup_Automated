@@ -76,7 +76,7 @@ module "ec2_instance" {
   vpc_security_group_ids      = [aws_security_group.jenkins-sg.id]
   subnet_id                   = module.vpc.public_subnets[0]
   ami                         = data.aws_ami.ubuntu.id
-  user_data                   = file("script.sh")
+  user_data                   = file("script2.sh")
   associate_public_ip_address = true
   availability_zone           = data.aws_availability_zones.azs.names[0]
   iam_instance_profile        = data.aws_iam_instance_profile.existing-role.role_name
